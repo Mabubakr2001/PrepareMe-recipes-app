@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A simple app that helps you to search for any kind of recipe that you want to prepare"
+    />
+    <meta name="keywords" content="HTML, CSS, JavaScript" />
+    <meta name="author" content="Muhammed Abubakr" />
+    <link href="./src/styles/style.css" rel="stylesheet" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="shortcut icon" href="./src/imgs/PrepareMe.png" />
+    <script type="module" defer src="./src/js/controller.js"></script>
+    <title>PrepareMe</title>
+  </head>
+  <body>
+    <div class="app-container">
+      <header class="app-header">
+        <img
+          src="./src/imgs/PrepareMe-logo.png"
+          alt="prepare-me"
+          class="app-logo"
+        />
+        <form class="search-recipes--form">
+          <input
+            type="text"
+            placeholder="Search for any recipe or ingredient..."
+            class="search-recipes--input"
+            value=""
+          />
+          <button
+            class="search-recipes--btn"
+            title="Search for your favorite food"
+          >
+            <i class="bx bx-search-alt-2"></i> Search
+          </button>
+        </form>
+        <div class="main-btns">
+          <button
+            class="main-btn main-btn--add---recipe"
+            title="Add new recipe"
+          >
+            <i class="bx bxs-edit"></i>Add recipe
+          </button>
+          <button
+            class="main-btn main-btn--show---bookmarks"
+            title="All bookmarked recipes"
+          >
+            <i class="bx bx-bookmark"></i>Bookmarks
+          </button>
+        </div>
+      </header>
+      <div class="app-body">
+        <div class="left-side">
+          <ul class="recipes-search--results">
+            <!-- <i class="bx bx-loader-circle loading-spinner"></i> -->
+            <!-- <div class="error">
+              <i class="bx bx-error"></i>
+              <p class="error-message">
+                Could not find any recipes for your query. Please try another
+                one!
+              </p>
+            </div> -->
+            <!-- <li>
+              <a href="#" class="recipe">
+                <img src="./src/imgs/pizza-1.jpg" alt="" class="recipe-img" />
+                <div class="sub-recipe--view">
+                  <h4 class="sub-recipe--name">Cauliflower Pizza</h4>
+                  <span class="recipe-publisher">All recipes</span>
+                </div>
+                <i class="bx bxs-user user-generated hidden"></i>
+              </a>
+            </li> -->
+          </ul>
+          <div class="pagination">
+            <!-- <button class="pagination-btn previous-page--btn" title="Previous page">
+              <i class="bx bx-left-arrow-alt"></i> Page
+              <span class="page-num previous-page--num">1</span>
+            </button>
+            <span class="current-page--num">2</span>
+            <button class="pagination-btn next-page--btn" title="Next page">
+              Page
+              <span class="page-num next-page--num">3</span
+              ><i class="bx bx-right-arrow-alt"></i>
+            </button>
+            -->
+          </div>
+          <p class="copyrights">
+            All rights &copy; reserved by
+            <a
+              href="https://www.linkedin.com/in/mohamed-aboubakr-87a982200"
+              target="_blank"
+              class="linkedin-link"
+              rel="noopener noreferrer"
+              >Mohamed Abubakr</a
+            >
+          </p>
+        </div>
+        <div class="right-side">
+          <div class="message">
+            <i class="fa-regular fa-face-smile-wink"></i>
+            <p>Start by searching for a recipe or an ingredient. Have fun!</p>
+          </div>
+          <!-- <i class="bx bx-loader-circle loading-spinner"></i> -->
+          <!-- <div class="error">
+            <i class="bx bx-error"></i>
+            <p class="error-message">
+              Could not find that recipe. Please try another one!
+            </p>
+          </div> -->
+          <!-- <div class="main-recipe--view">
+            <img src="./src/imgs/food.jpg" alt="" class="main-recipe--img" />
+            <h1 class="main-recipe--name">
+              Cauliflower Pizza Crust (With BBQ Chicken Pizza)
+            </h1>
+          </div>
+          <div class="handle-recipe">
+            <div class="handle handle-prep--minutes">
+              <i class="bx bx-time-five"></i>
+              <span class="handle-data handle-data--time">30</span>
+              <span class="handle-text handle-text--time">Minutes</span>
+            </div>
+            <div class="handle handle-servings">
+              <i class="bx bx-group"></i>
+              <span class="handle-data handle-data--servings">5</span>
+              <span class="handle-text handle-text--servings">Servings</span>
+              <div class="update-servings--btns">
+                <i class="bx bx-minus-circle update-btn subtract-btn"></i>
+                <i class="bx bx-plus-circle update-btn add-btn"></i>
+              </div>
+            </div>
+            <div class="others">
+              <i class="bx bxs-user user-generated"></i>
+              <button class="bookmark-recipe--btn">
+                <i class="fa-regular fa-bookmark"></i>
+                <i class="fa-solid fa-bookmark"></i>
+              </button>
+            </div>
+          </div>
+          <div class="recipe-ingredients">
+            <h1 class="heading-1">Recipe Ingredients</h1>
+            <ul class="ingredients-content">
+              <li class="recipe-ingredient">
+                <i class="fa-solid fa-check"></i>
+                <span class="recipe-quantity">4</span>
+                <div class="recipe-description">
+                  <span class="recipe-unit">oz</span>
+                  cream cheese room temperature
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="how-to--cook">
+            <h1 class="heading-1">More about the recipe</h1>
+            <p>
+              This recipe was carefully designed and tested by
+              <span class="publisher">Closet Cooking</span>. Please check out
+              directions at their website.
+            </p>
+            <div class="btns-more">
+              <a
+                href="#"
+                class="btn-more directions-btn"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Directions <i class="bx bx-right-arrow-alt directions-btn--icon"></i>
+              </a>
+              <button class="btn-more delete-btn">
+                Delete recipe <i class="fa-solid fa-trash"></i>
+              </button>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <div class="overlay"></div>
+    <div class="modal new-recipe--modal">
+      <div class="inputs">
+        <h2>Recipe Data</h2>
+        <form class="new-recipe--data" autocomplete="off">
+          <div class="piece-of--data">
+            <label>Title</label>
+            <input
+              type="text"
+              required
+              value=""
+              name="title"
+              placeholder="Must be at least 5 characters"
+            />
+          </div>
+          <div class="piece-of--data">
+            <label>URL</label>
+            <input
+              type="text"
+              required
+              value=""
+              name="sourceURL"
+              placeholder="Enter an active URL"
+            />
+          </div>
+          <div class="piece-of--data">
+            <label>Image URL</label>
+            <input
+              type="text"
+              required
+              value=""
+              name="image"
+              placeholder="Enter an active URL"
+            />
+          </div>
+          <div class="piece-of--data">
+            <label>Publisher</label>
+            <input
+              type="text"
+              required
+              value=""
+              name="publisher"
+              placeholder="Must be at least 5 characters"
+            />
+          </div>
+          <div class="piece-of--data">
+            <label>Prep Time</label>
+            <input
+              type="number"
+              required
+              value=""
+              name="prepTime"
+              placeholder="Must be in minutes"
+            />
+          </div>
+          <div class="piece-of--data">
+            <label>Servings</label>
+            <input
+              type="number"
+              required
+              value=""
+              name="servings"
+              placeholder="Flexible for edit later"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="inputs">
+        <h2>Ingredients</h2>
+        <form class="new-recipe--data" autocomplete="off">
+          <div class="piece-of--data">
+            <label>Ingredient</label>
+            <input
+              type="text"
+              required
+              value=""
+              name="ing1"
+              placeholder="Format: 'Quantity, Unit, Description'"
+            />
+          </div>
+          <div class="piece-of--data">
+            <label>Ingredient</label>
+            <input
+              type="text"
+              required
+              value=""
+              name="ing2"
+              placeholder="Format: 'Quantity, Unit, Description'"
+            />
+          </div>
+          <div class="piece-of--data">
+            <label>Ingredient</label>
+            <input
+              type="text"
+              required
+              value=""
+              name="ing3"
+              placeholder="Format: 'Quantity, Unit, Description'"
+            />
+          </div>
+          <div class="piece-of--data">
+            <label>Ingredient</label>
+            <input
+              type="text"
+              required
+              value=""
+              name="ing4"
+              placeholder="Format: 'Quantity, Unit, Description'"
+            />
+          </div>
+          <div class="piece-of--data">
+            <label>Ingredient</label>
+            <input
+              type="text"
+              required
+              value=""
+              name="ing5"
+              placeholder="Format: 'Quantity, Unit, Description'"
+            />
+          </div>
+          <div class="piece-of--data">
+            <label>Ingredient</label>
+            <input
+              type="text"
+              required
+              value=""
+              name="ing6"
+              placeholder="Format: 'Quantity, Unit, Description'"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="inputs">
+        <h2>Ingredients</h2>
+        <form class="new-recipe--data" autocomplete="off">
+          <div class="piece-of--data">
+            <label>Ingredient</label>
+            <input
+              type="text"
+              required
+              value=""
+              name="ing7"
+              placeholder="Format: 'Quantity, Unit, Description'"
+            />
+          </div>
+          <div class="piece-of--data">
+            <label>Ingredient</label>
+            <input
+              type="text"
+              required
+              value=""
+              name="ing8"
+              placeholder="Format: 'Quantity, Unit, Description'"
+            />
+          </div>
+          <div class="piece-of--data">
+            <label>Ingredient</label>
+            <input
+              type="text"
+              required
+              value=""
+              name="ing9"
+              placeholder="Format: 'Quantity, Unit, Description'"
+            />
+          </div>
+          <div class="piece-of--data">
+            <label>Ingredient</label>
+            <input
+              type="text"
+              required
+              value=""
+              name="ing10"
+              placeholder="Format: 'Quantity, Unit, Description'"
+            />
+          </div>
+          <div class="piece-of--data">
+            <label>Ingredient</label>
+            <input
+              type="text"
+              required
+              value=""
+              name="ing11"
+              placeholder="Format: 'Quantity, Unit, Description'"
+            />
+          </div>
+          <div class="piece-of--data">
+            <label>Ingredient</label>
+            <input
+              type="text"
+              required
+              value=""
+              name="ing12"
+              placeholder="Format: 'Quantity, Unit, Description'"
+            />
+          </div>
+        </form>
+      </div>
+      <button class="upload-btn" title="Upload your recipe">
+        <i class="bx bx-upload"></i> Upload
+      </button>
+    </div>
+    <div class="hint-modal">
+      <div class="hint-message">
+        <!-- <i class="bx bx-loader-circle upload-spinner"></i> -->
+        <p class="hint color-green">
+          The recipe was successfully uploaded and also you have to go further
+          alright? and before you upload the recipe you have to delete the
+          previous one 🎉
+        </p>
+      </div>
+      <button class="hint-btn">OK</button>
+    </div>
+    <div class="modal bookmarked-recipes--modal">
+      <div class="error window-error">
+        <i class="bx bx-error"></i>
+        There are no bookmarks yet. Find a nice recipe and bookmark it!
+      </div>
+      <!-- <div class="bookmarked-recipe--content">
+        <div class="recipe bookmarked-recipe">
+          <img src="./src/imgs/pizza-1.jpg" alt="" class="recipe-img" />
+          <div class="sub-recipe--view bookmarked-sub--recipe---view">
+            <h4 class="sub-recipe--name">Cauliflower Pizza</h4>
+            <span class="recipe-publisher">All recipes</span>
+          </div>
+          <i class="bx bxs-user user-generated"></i>
+        </div>
+        <a href="#" class="see-recipe">See Recipe</a>
+      </div> -->
+    </div>
+    <div class="modal delete-check">
+      <p>Are you sure you want to delete that recipe?</p>
+      <div class="check-btns">
+        <button class="check-btn yes-btn" title="Confirm">
+          <i class="fa-solid fa-check"></i> Yes
+        </button>
+        <button class="check-btn no-btn" title="Undo">
+          <i class="fa-solid fa-xmark"></i> No
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "prepareme-project",
+  "version": "1.0.0",
+  "description": "My funny recipe project",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html --dist-dir ./dist"
+  },
+  "keywords": [
+    "HTML",
+    "CSS",
+    "JavaScript"
+  ],
+  "author": "Mohamed Aboubakr",
+  "license": "ISC",
+  "dependencies": {
+    "core-js": "^3.27.1",
+    "fractional": "^1.0.0",
+    "regenerator-runtime": "^0.13.11"
+  },
+  "devDependencies": {
+    "parcel": "^2.8.2"
+  }
+}

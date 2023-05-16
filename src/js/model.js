@@ -1,5 +1,4 @@
 // Business logic
-import { async } from "regenerator-runtime";
 import { API_KEY, API_URL, RECIPES_PER_PAGE } from "./config.js";
 import { AJAXCall } from "./helpers.js";
 

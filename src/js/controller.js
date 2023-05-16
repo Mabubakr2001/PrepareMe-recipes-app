@@ -1,7 +1,6 @@
 // Application logic
 
-import "core-js/stable";
-import "regenerator-runtime/runtime";
+import "../styles/style.css";
 import * as model from "./model.js";
 import bookmarksWindowView from "./views/modalWindows/bookmarksWindowView.js";
 import checkDeleteWindow from "./views/modalWindows/checkDeleteWindow.js";
@@ -11,8 +10,6 @@ import paginationView from "./views/paginationView.js";
 import recipeView from "./views/recipeView.js";
 import resultView from "./views/resultView.js";
 import searchView from "./views/searchView.js";
-
-if (module.hot) module.hot.accept();
 
 const controlSearchResults = async function () {
   try {

@@ -34,7 +34,7 @@
 
 body {
   background-image: linear-gradient(#cccccca1, #cccccca1),
-    url("../imgs/food.jpg");
+    url("../assets/imgs/food.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

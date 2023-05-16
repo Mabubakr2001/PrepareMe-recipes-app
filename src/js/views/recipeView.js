@@ -1,5 +1,5 @@
 import { Fraction } from "fractional";
-import icons from "url:../../../src/imgs/icons.svg";
+import icons from "../../assets/imgs/icons.svg";
 import checkDeleteWindow from "./modalWindows/checkDeleteWindow.js";
 import ViewClass from "./view.js";
 
@@ -15,7 +15,7 @@ class RecipeView extends ViewClass {
   }
 
   addHandlerRender(handler) {
-    ["hashchange", "load"].forEach(event =>
+    ["hashchange", "load"].forEach((event) =>
       window.addEventListener(event, handler)
     );
   }
@@ -38,7 +38,7 @@ class RecipeView extends ViewClass {
   }
 
   handleOpenDeleteWindow() {
-    this._parentElement.addEventListener("click", event => {
+    this._parentElement.addEventListener("click", (event) => {
       const clickedBtn = event.target.closest(".delete-btn");
       if (!clickedBtn) return;
       checkDeleteWindow.showModal();

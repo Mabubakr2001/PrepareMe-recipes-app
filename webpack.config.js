@@ -6,8 +6,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const MiniCSSExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  mode: "development",
-  // mode: "production",
+  mode: "production",
   entry: {
     controller: path.resolve(__dirname, "./src/js/controller.js"),
   },

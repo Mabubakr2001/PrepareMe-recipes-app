@@ -50,6 +50,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
+        exclude: /node_modules/,
         use: [MiniCSSExtractPlugin.loader, "css-loader", "postcss-loader"],
       },
       {
